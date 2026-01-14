@@ -1,16 +1,16 @@
 # Class
-Bag
+Animal
 
 # Properties
-- brand
-- material used
+- name
+- country of origin
 
 ---
 # 2 objects
 ## Object 1
-- property1: Nike
-- property2: Synthetic Fabric
+- property1: Dog
+- property2: East Asia
 
 ## Object 2
-- property1: Gucci
-- property2: Leather
+- property1: Cat
+- property2: Asia and North Africa
