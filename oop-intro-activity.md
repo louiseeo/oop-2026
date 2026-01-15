@@ -1,16 +1,16 @@
 # Class
-Animal
+Tumbler
 
 # Properties
-- name
-- country of origin
+- brand
+- volume
 
 ---
 # 2 objects
 ## Object 1
-- property1: Dog
-- property2: East Asia
+- property1: Aquaflask
+- property2: 750 ml
 
 ## Object 2
-- property1: Cat
-- property2: Asia and North Africa
+- property1: Tyeso
+- property2: 600 ml
