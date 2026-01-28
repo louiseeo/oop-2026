@@ -9,7 +9,7 @@ public class Book {
     // parameterless constructor
     public Book(){}
 
-    // parameter constructor 
+    // parameterized constructor 
     public Book(String title, String author, String isbn, String publicationDate){
         this.title = title;
         this.author = author;
