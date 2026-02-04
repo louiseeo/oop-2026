@@ -6,8 +6,8 @@ public class Main {
 
         // create 3 object for 3 students
         Student student1 = new Student(251057, "Louise Nicole", "Ninobla", "Madriaga", "Female", "louisenicolemadriaga@lorma.edu");
-        Student student2 = new Student(251, "Lavigne", "Ninobla", "Madriaga", "Female", "lavignemadriaga@lorma.edu");
-        Student student3 = new Student(121, "Janet", "Ninobla", "Madriaga", "Female", "janetmadriaga@lorma.edu");
+        Student student2 = new Student(254541, "Lavigne", "Ninobla", "Madriaga", "Female", "lavignemadriaga@lorma.edu");
+        Student student3 = new Student(121543, "Janet", "Ninobla", "Madriaga", "Female", "janetmadriaga@lorma.edu");
 
         System.out.println(Student.getTotalStudents());
 
