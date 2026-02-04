@@ -1,5 +1,3 @@
-package activity2;
-
 public class Student {
     int studentId;
     String firstName, middleName, lastName, gender, email;

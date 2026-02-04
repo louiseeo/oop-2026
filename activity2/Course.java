@@ -1,5 +1,3 @@
-package activity2;
-
 public class Course {
     String courseCode, courseTitle;
     Student[] enrolledStudents;

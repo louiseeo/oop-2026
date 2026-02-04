@@ -1,5 +1,3 @@
-package activity1;
-
 public class Book {
     String title; // title
     String author; // author
