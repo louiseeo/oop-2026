@@ -1,17 +1,24 @@
 import java.time.LocalDateTime;
 
 public class SecretAgent {
+    // private fields
     private String agentId;
     private String codename;
     private int clearanceLevel;
     private boolean onMission;
     private LocalDateTime lastMissionCompletionTime;
 
+    // public constructor
     public SecretAgent (String agentId, String codename, int clearanceLevel){
+        this.agentId = agentId;
+        this.codename = codename;
+        this.clearanceLevel = clearanceLevel;
+
         onMission = false;
         lastMissionCompletionTime = null;
     }
 
+    // public methods: getters
     public String getAgentId(){
         return this.agentId;
     }
@@ -29,9 +36,10 @@ public class SecretAgent {
     }
 
     public LocalDateTime getLastMissionCompletionTime(){
-        return this.getLastMissionCompletionTime();
+        return this.lastMissionCompletionTime;
     }
 
+    // public methods: setters
     public void setCodename(String newCodename){
         if (newCodename != null)
         this.codename = newCodename;
@@ -44,6 +52,7 @@ public class SecretAgent {
             System.out.println("Invalid clearance level");
     }
 
+    // behavioral methods
     public void startMission(){
         this.onMission = true;
     }
