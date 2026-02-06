@@ -40,7 +40,8 @@ public class Mission {
         // Format time
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
         String formattedDate = missionDeadline.format(dateFormat);
-        System.out.println("*** MISSION BRIEFING ***");
+				
+        System.out.println("\n*** MISSION BRIEFING ***");
         System.out.println("Target: " + missionTarget );
         System.out.println("Difficulty: " + difficulty);
         System.out.println("Deadline: " + formattedDate);
