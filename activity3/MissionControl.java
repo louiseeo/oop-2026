@@ -1,7 +1,6 @@
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class MyClass {
+public class MissionControl {
     public static void main(String[] args) {
         // Create agent
         SecretAgent secretAgent = new SecretAgent("007", "James Bond", 5);
@@ -16,12 +15,12 @@ public class MyClass {
         Mission newMission = new Mission();
         newMission.displayMissionBriefing();
 
-        // Decision logic
+        // Logic for making decision
         if (secretAgent.getClearanceLevel() >= newMission.getDifficulty()) {
             secretAgent.startMission();
             System.out.println("Agent " + secretAgent.getAgentId() + " is cleared for mission.");
 
-            // Simulate mission completion
+            // Pause for 2 seconds before printing final status
             try {
                 Thread.sleep(2000); // simulate time passing
             } catch (InterruptedException e) {
@@ -30,7 +29,7 @@ public class MyClass {
 
             secretAgent.completeMission();
 
-            // Print final status (only if mission was cleared)
+            // Print final status if mission was cleared
             System.out.println("\n*** FINAL STATUS ***");
             System.out.println("Agent ID: " + secretAgent.getAgentId());
             System.out.println("Name: " + secretAgent.getCodename());
@@ -44,7 +43,7 @@ public class MyClass {
         } else {
             System.out.println("Agent " + secretAgent.getAgentId() + "'s clearance is too low for this mission.");
 
-            // Print final status (no mission completed)
+            // Print final status if no mission is completed
             System.out.println("\n*** FINAL STATUS ***");
             System.out.println("Agent ID: " + secretAgent.getAgentId());
             System.out.println("Name: " + secretAgent.getCodename());
