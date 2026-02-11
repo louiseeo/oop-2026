@@ -48,21 +48,20 @@ public class BankAccount {
         }
     }
 
-    public boolean deposit(float balance) {
+    public boolean deposit(float amount) {
         if (balance > 0) {
-            this.balance += balance;
+            this.balance += amount;
             return true;
         } else {
             System.out.println("Error: You cannot deposit less than 1 peso.");
             return false;
         }
-
     }
 
     public void withdraw(float amount) {
         if (balance >= amount) {
             balance = balance - amount;
-            System.out.println("Withraw success...");
+            System.out.println("Withraw success...\n");
         } else {
             System.out.println("Error: Insufficient balance");
         }
