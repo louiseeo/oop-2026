@@ -1,15 +1,12 @@
-/*
-Activity 4 Task
-
-Make Deposit, Withdraw and Exit functional.
-Make proper adjustment to BankAccount.java if necessary.
-*/
-
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.FileReader;
 
 public class App {
     public static void main(String[] args) {
@@ -26,44 +23,14 @@ public class App {
         System.out.println("Enter PIN:");
         int pin = sc.nextInt();
 
-        /*
-         * CHECKING IF THE ACCOUNT IS PRESENT THEN AUTHENTICATE WITH THE PIN
-         * OPTION 1:
-         * for(BankAccount a: accounts){
-         * if(a.getAcctNo().equals(acctNo)){
-         * newSessionUser = a; //assign to new session user if match is found
-         * break;
-         * }
-         * }
-         * //try if account exist then check PIN
-         * if(newSessionUser != null){
-         * if(newSessionUser.getPin() == pin){
-         * System.out.println("Welcome...");
-         * //begin transaction
-         * beginTransaction(newSessionUser);
-         * }else{
-         * System.out.println("Sorry try again...");
-         * }
-         * }else{
-         * System.out.println("Sorry try again...");
-         * }
-         * 
-         */
-
-        /*
-         * public static boolean match(param){
-         * return property == param
-         * }
-         * 
-         */
-        // OPTION 2
+        // checking if the account is present then authenticate with the pin
         Optional<BankAccount> newSessionUser = accounts.stream().filter(b -> b.getAcctNo().equals(acctNo)).findFirst();
 
         if (newSessionUser.isPresent()) {
             if (newSessionUser.get().isValidPin(pin)) {
                 System.out.println("Welcome...");
                 // begin transaction
-                beginTransaction(newSessionUser.get());
+                beginTransaction(newSessionUser.get(), accounts);
             } else {
                 System.out.println("Invalid credentials...");
             }
@@ -71,7 +38,7 @@ public class App {
 
     }
 
-    public static void beginTransaction(BankAccount account) {
+    public static void beginTransaction(BankAccount account, ArrayList<BankAccount> accounts) {
         while (true) {
             System.out.println("""
                         Menu
@@ -92,19 +59,21 @@ public class App {
                     System.out.println("Enter deposit amount");
                     float deposit = sc.nextFloat();
                     account.deposit(deposit);
-                        System.out.println("Deposit success...\n");
+                    saveAccounts(accounts); // save changes to csv file
+                    System.out.println("Deposit success...\n");
                     break;
 
                 case 3:
                     System.out.println("Enter withdraw amount");
                     float withdraw = sc.nextFloat();
                     account.withdraw(withdraw);
+                    saveAccounts(accounts); // save changes to csv file
                     break;
 
                 case 0:
                     System.out.println("Exiting program...");
-                    return;
-                
+                    return; // stops the program
+
                 default:
                     System.out.println("Invalid choice...\n");
                     break;
@@ -112,11 +81,14 @@ public class App {
         }
     }
 
+    // Method for reading acc from csv and loads it to arraylist
     public static void loadAccounts(ArrayList<BankAccount> accounts) {
-        try (Scanner reader = new Scanner(new File("accounts.csv"))) {
-            reader.nextLine(); // skip the header
-            while (reader.hasNextLine()) {
-                String[] cols = reader.nextLine().split(",");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("accounts.csv"));
+            String line;
+            br.readLine(); // skips the header
+            while ((line = br.readLine()) != null) {
+                String[] cols = line.split(",");
                 String acctNo = cols[0];
                 String fullName = cols[1];
                 float balance = Float.parseFloat(cols[2]);
@@ -125,8 +97,21 @@ public class App {
                 BankAccount acc = new BankAccount(acctNo, pin, balance, fullName);
                 accounts.add(acc);
             }
-        } catch (FileNotFoundException | NumberFormatException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    // Method for writing updated accounts
+    public static void saveAccounts(ArrayList<BankAccount> accounts) {
+        try (FileWriter writer = new FileWriter("accounts.csv")) {
+            writer.write("Account Number,Full Name,Balance,PIN\n");
+            for (BankAccount acc : accounts) {
+                writer.write(acc.getAcctNo() + "," + acc.getFullName() + "," + acc.getBalance() + "," + acc.getPin() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }
