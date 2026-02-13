@@ -12,7 +12,7 @@ public class BankAccount {
             this.balance = balance;
     }
 
-    // getters
+    // Getters
     public String getAcctNo() {
         return acctNo;
     }
@@ -49,21 +49,23 @@ public class BankAccount {
     }
 
     public boolean deposit(float amount) {
-        if (balance > 0) {
+        if (amount > 0) {
             this.balance += amount;
             return true;
         } else {
             System.out.println("Error: You cannot deposit less than 1 peso.");
             return false;
         }
+
     }
 
-    public void withdraw(float amount) {
-        if (balance >= amount) {
-            balance = balance - amount;
-            System.out.println("Withraw success...\n");
+    public boolean withdraw(float amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            return true;
         } else {
-            System.out.println("Error: Insufficient balance");
+            System.out.println("Error: Insufficient balance...");
+            return false;
         }
     }
 
