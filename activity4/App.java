@@ -7,13 +7,13 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class App {
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         // load accounts
         ArrayList<BankAccount> accounts = new ArrayList<>();
         loadAccounts(accounts);
 
         // login
-        Scanner sc = new Scanner(System.in);
         System.out.println("WELCOME TO JAVA ATM");
         System.out.print("Enter account number to proceed: ");
         String acctNo = sc.nextLine();
@@ -40,15 +40,8 @@ public class App {
 
     // Display the menu
     public static void beginTransaction(BankAccount account, ArrayList<BankAccount> accounts) {
-        Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("""
-                        Menu
-                        1. Balance Inquiry
-                        2. Deposit
-                        3. Withdraw
-                        0. Exit
-                    """);
+            System.out.println("Menu\n1. Balance Inquiry\n2. Deposit\n3. Withdraw\n0. Exit");
             System.out.print("Choice: ");
             int c = sc.nextInt();
             switch (c) {
@@ -76,6 +69,8 @@ public class App {
 
                 case 0:
                     System.out.println("Exiting program..."); // stops the program
+                    saveAccounts(accounts); // saves progress
+                    sc.close();
                     System.exit(0); // stops program
                     break;
 
@@ -117,5 +112,6 @@ public class App {
         } catch (IOException e) {
             System.out.println("Error saving accounts: " + e.getMessage());
         }
-    }
+        
+    } 
 }
