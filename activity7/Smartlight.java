@@ -1,29 +1,29 @@
 package activity7;
 
-public class Smartlight extends SmartDevice{
-    int brightness;
+public class Smartlight extends SmartDevice {
+    private int brightness;
 
-    public Smartlight(String deviceName, boolean isOn, int brightness) {
-        super(deviceName, isOn);
-        this.brightness = brightness;
+    public int getBrightness() {
+        return brightness;
     }
-    
-    public void setBrightness(int level){
-        if (isOn){
-            if(level >= 0 && level <= 100){
+
+    public Smartlight(String deviceName) {
+        super(deviceName);
+        this.brightness = 0;
+    }
+
+    @Override
+    public void displayStatus() {
+        super.displayStatus();
+        System.out.println("Brightness: " + brightness);
+    }
+
+    public void setBrightness(int level) {
+        if (getisOn()) {
+            if (level >= 0 && level <= 100) {
                 this.brightness = level;
-                System.out.println("Brightness ");
             }
         }
     }
-    @Override
-    //dipa tapos sir
 
-
-    }
-
-
-    
-
-    
-
+}

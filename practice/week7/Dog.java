@@ -1,9 +1,13 @@
 package practice.week7;
 
-public class Dog {
+public class Dog extends Animal {
     private String color;
 
-    public Dog(String color) {
+    public Dog(){
+
+    }
+    public Dog(String family, String specie, String name, String color) {
+        super(family, specie, name);
         this.color = color;
     }
 
@@ -16,12 +20,7 @@ public class Dog {
     }
 
     public void bark(){
-        System.out.println("bark bark");
+        System.out.println(getName() + " goes woof woof!");
     }
 
-    @Override
-    public void displayInfo(){
-        super.displayInfo;
-        System.out.println();
-    }
 }

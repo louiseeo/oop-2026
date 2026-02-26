@@ -1,10 +1,12 @@
 package practice.week7;
+
 public class Animal {
     private String family;
     private String specie;
     private String name;
 
-    public Animal() {}
+    public Animal() {
+    }
 
     public Animal(String family, String specie, String name) {
         this.family = family;
@@ -35,9 +37,5 @@ public class Animal {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void displayInfo(){
-System.out.println("Name");
     }
 }

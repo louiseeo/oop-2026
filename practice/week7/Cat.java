@@ -1,9 +1,12 @@
 package practice.week7;
 
-public class Cat {
+public class Cat extends Animal {
     private String color;
 
-    public Cat(String color) {
+    public Cat(){}
+
+    public Cat(String family, String specie, String name, String color) {
+        super(family, specie, name);
         this.color = color;
     }
 
@@ -16,6 +19,6 @@ public class Cat {
     }
 
     public void meow(){
-        System.out.println("meow meow");
+        System.out.println(getName() + " says meow meow!");
     }
 }
