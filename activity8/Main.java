@@ -2,35 +2,38 @@ package activity8;
 
 public class Main {
     public static void main(String[] args) {
-     
-        // Create a rectangle object
-        MyRectangle2D rectangle = new MyRectangle2D(100, 100, 200, 200);
+
+        // Create a rectangle objects
+        MyRectangle2D r1 = new MyRectangle2D(2, 2, 5.5, 4.9); // main rectangle
+        MyRectangle2D r2 = new MyRectangle2D(4, 5, 10.5, 3.2); // for contains checking
+        MyRectangle2D r3 = new MyRectangle2D(3, 5, 2.3, 5.4); // for overlapping checking
 
         // Find the area
-        double area = rectangle.getArea();
-        System.out.println("Area: " + area + " m²");
+        double area = r1.getArea();
+        System.out.printf("Rectangle r1 area: %.2f m²\n", area );
 
         // Find the perimeter
-        double perimeter = rectangle.getPerimeter();
-        System.out.println("Perimeter: " + perimeter + " m²");
+        double perimeter = r1.getPerimeter();
+        System.out.printf("Rectangle r1 perimeter: %.2f m\n", perimeter);
 
-        //Check is specified point is inside the rectangle
-        boolean point = rectangle.contains(65, 30);
-        if (point)
-            System.out.println("The specified point is inside the rectangle.");
+        // Check if specified point is inside the rectangle
+        if (r1.contains(3, 3))
+            System.out.println("The point (3,3) is inside the rectangle.");
         else
-             System.out.println("The specified point is not inside the rectangle.");
-        
-        // Check if the specified rectangle is inside the rectangle
-        boolean cont = rectangle.contains(rectangle);
-        if (cont)
-            System.out.println("The specified rectangle is inside the rectangle.");
-        else
-            System.out.println("The specified rectangle is not inside the rectangle.");
-            
-        //Check if rectang
+            System.out.println("The point (3,3) is not inside the rectangle.");
 
+        // Check if r2 is inside r1
+        if (r1.contains(r2))
+            System.out.println("The specified rectangle r2 (4, 5, 10.5, 3.2) is inside rectangle r1.");
+        else 
+            System.out.println("The specified rectangle r2 (4, 5, 10.5, 3.2) is not inside rectangle r1.");
+
+        // Check if r3 overlaps r1
+        if (r1.overlaps(r3))
+            System.out.println("The specified rectangle r3 (3, 5, 2.3, 5.4) overlaps rectangle r1.");
+        else
+            System.out.println("The specified rectangle r3 (3, 5, 2.3, 5.4) does not overlap rectangle r1.");
 
     }
-    
+
 }
