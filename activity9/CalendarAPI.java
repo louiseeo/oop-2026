@@ -105,15 +105,4 @@ public class CalendarAPI {
         GregorianCalendar cal = new GregorianCalendar(year, month - 1, 1);
         return cal.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
-
-    /**
-     * Determines a year if it is a leap year(if Feb = 29 days)
-     * 
-     * @param year e.g. 2026
-     * @return true if leap year, false if not
-     */
-    public static boolean isLeapYear(int year) {
-        GregorianCalendar cal = new GregorianCalendar(year, Calendar.FEBRUARY, 1);
-        return cal.getActualMaximum(Calendar.DAY_OF_MONTH) == 29;
-    }
 }
