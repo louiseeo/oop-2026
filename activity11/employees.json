@@ -1,0 +1,30 @@
+[
+  {
+    "baseSalary": 800000.0,
+    "bonus": 1000000.0,
+    "name": "Louise Nicole Madiraga",
+    "employeeId": "12456",
+    "type": "SALARIED"
+  },
+  {
+    "hoursWorked": 13,
+    "hourlyRate": 523.0,
+    "name": "Lavigne Madriaga",
+    "employeeId": "12114",
+    "type": "HOURLY"
+  },
+  {
+    "baseSalary": 20000.0,
+    "bonus": 1200.567,
+    "name": "Nico Robin",
+    "employeeId": "54321",
+    "type": "SALARIED"
+  },
+  {
+    "hoursWorked": 15,
+    "hourlyRate": 546.6784,
+    "name": "Sara Duterte",
+    "employeeId": "67867",
+    "type": "HOURLY"
+  }
+]

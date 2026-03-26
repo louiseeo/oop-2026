@@ -38,7 +38,4 @@ public abstract class Employee {
     }
 }
 
-enum EmployeeType {
-    SALARIED,
-    HOURLY
-}
+
