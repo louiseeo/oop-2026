@@ -3,6 +3,7 @@ import java.util.List;
 
 /**
  * Generic repository for storing and managing items of any kind of type.
+ * 
  * @param <T> : type of items stored in the repository
  */
 public class Repository<T> {
@@ -10,6 +11,7 @@ public class Repository<T> {
 
     /**
      * Parameterized constructor with an initial list of items.
+     * 
      * @param items : initial list of items
      */
     public Repository(List<T> items) {
@@ -18,7 +20,8 @@ public class Repository<T> {
 
     /**
      * Adds an item to the list.
-     * @param item  
+     * 
+     * @param item
      */
     public void add(T item) {
         items.add(item);
@@ -26,6 +29,7 @@ public class Repository<T> {
 
     /**
      * Retrieves item at the specified index.
+     * 
      * @param index : index of the item
      * @return the item at the specified index
      */
@@ -35,6 +39,7 @@ public class Repository<T> {
 
     /**
      * Method that returns the entire list.
+     * 
      * @return the list
      */
     public List<T> getAll() {
@@ -43,9 +48,11 @@ public class Repository<T> {
 
     /**
      * Method that returns the number of items.
+     * 
      * @return number of items
      */
     public int size() {
         return items.size();
     }
+
 }

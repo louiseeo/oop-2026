@@ -1,6 +1,7 @@
 /**
  * Generic wrapper class for displaying operation results.
  * Encapsulates data, status message, and if it is success.
+ * 
  * @param <T> : the type of data being wrapped
  */
 public class Result<T> {
@@ -9,7 +10,9 @@ public class Result<T> {
     private boolean isSuccess;
 
     /**
-     * Parameterized constructor that Results with data, message, and success status.
+     * Parameterized constructor that Results with data, message, and success
+     * status.
+     * 
      * @param data      : the data object to wrap
      * @param message   : the status of message
      * @param isSuccess : whether the operation was successful
@@ -22,6 +25,7 @@ public class Result<T> {
 
     /**
      * Gets the wrapped data.
+     * 
      * @return data object
      */
     public T getData() {
@@ -30,6 +34,7 @@ public class Result<T> {
 
     /**
      * Gets the status message.
+     * 
      * @return the message
      */
     public String getMessage() {
@@ -38,6 +43,7 @@ public class Result<T> {
 
     /**
      * Checks if operation was successful.
+     * 
      * @return true if successful, false if not
      */
     public boolean isSuccess() {
@@ -52,4 +58,5 @@ public class Result<T> {
         System.out.println("Message: " + message);
         System.out.println("Success: " + isSuccess);
     }
+
 }

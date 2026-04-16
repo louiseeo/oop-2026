@@ -1,4 +1,4 @@
-public class SalariedEmployee extends Employee{
+public class SalariedEmployee extends Employee {
     private double baseSalary;
     private double bonus;
 

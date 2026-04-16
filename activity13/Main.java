@@ -35,4 +35,5 @@ public class Main {
         Result<Employee> result = new Result<Employee>(emp, "Load Successful", true);
         result.display();
     }
+
 }
