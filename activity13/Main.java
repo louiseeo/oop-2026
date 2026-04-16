@@ -16,12 +16,10 @@ public class Main {
      */
     public static void main(String[] args) {
         // Part A: Guest Names
-        List<String> names = new ArrayList<>();
-        names.add("Alice");
-        names.add("Bob");
-        names.add("Charlie");
-
-        Repository<String> guestNames = new Repository<String>(names);
+        Repository<String> guestNames = new Repository<String>(new ArrayList<>());
+        guestNames.add("Alice");
+        guestNames.add("Bob");
+        guestNames.add("Charlie");
         System.out.println("Number of guests: " + guestNames.size());
 
         System.out.println(); // add space to differentiate parts
@@ -30,7 +28,7 @@ public class Main {
         List<Employee> employees = new ArrayList<>();
         employees.add(new SalariedEmployee("Milk Smith", "C456", 5000, 1000));
         employees.add(new HourlyEmployee("Love Madriaga", "D789", 15, 550));
-        
+
         Repository<Employee> empRepo = new Repository<>(employees);
         Employee emp = empRepo.get(1);
 

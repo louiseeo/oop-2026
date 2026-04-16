@@ -17,7 +17,8 @@ public abstract class Employee {
                 \n\tName: %s
                 \tID: %s
                 \tType: %s
-                """, name, employeeId, type);
+                \tEarnings: %.2f
+                """, name, employeeId, type, calculateEarnings());
     }
 
     @Override
