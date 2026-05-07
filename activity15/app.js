@@ -1,19 +1,15 @@
-const ouputBox = document.getElementById("output")
+const outputBox = document.getElementById("output");
 
 let operands = [];
 let currentOperand = "";
+let operator = null;
 
-/*
-    function numClick(num){
-    
-    }
-*/
 const numClick = (num) => {
     if (currentOperand === "")
-        ouputBox.textContent = "";
+        outputBox.textContent = "";
 
-    ouputBox.textContent += num
-    currentOperand = ouputBox.textContent
+    outputBox.textContent += num;
+    currentOperand = outputBox.textContent;
 }
 
 document.getElementById("btn1").addEventListener("click", () => { numClick(1) })
@@ -26,30 +22,47 @@ document.getElementById("btn7").addEventListener("click", () => { numClick(7) })
 document.getElementById("btn8").addEventListener("click", () => { numClick(8) })
 document.getElementById("btn9").addEventListener("click", () => { numClick(9) })
 document.getElementById("btn0").addEventListener("click", () => { numClick(0) })
-document.getElementById("btndec").addEventListener("click", () => { numClick(".") })
+
 document.getElementById("btnplus").addEventListener("click", () => {
     if (currentOperand === "")
         return;
 
-    operands.push(parseFloat(currentOperand))
-    console.log(operands)
-    currentOperand = ""; //clear current operand
+    operands.push(parseFloat(currentOperand));
+    operator = "+";
+    currentOperand = "";
+})
+
+document.getElementById("btnminus").addEventListener("click", () => {
+    if (currentOperand === "")
+        return;
+
+    operands.push(parseFloat(currentOperand));
+    operator = "-";
+    currentOperand = "";
 })
 
 document.getElementById("btnequal").addEventListener("click", () => {
+
     if (currentOperand !== "") {
-        operands.push(parseFloat(currentOperand))
+        operands.push(parseFloat(currentOperand));
         currentOperand = "";
     }
 
+    let result = operands[0];
 
-
-    let sum = 0;
-    for (let o of operands) {
-        sum += o;
+    if (operator === "+") {
+        for (let i = 1; i < operands.length; i++) {
+            result += operands[i];
+        }
+    }
+    else if (operator === "-") {
+        for (let i = 1; i < operands.length; i++) {
+            result -= operands[i];
+        }
     }
 
-    ouputBox.textContent = sum;
-    operands = [];
+    outputBox.textContent = result;
 
+    operands = [];
+    operator = null;
 });
