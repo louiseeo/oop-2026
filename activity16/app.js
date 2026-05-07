@@ -66,3 +66,10 @@ document.getElementById("btnequal").addEventListener("click", () => {
     operands = [];
     operator = null;
 });
+
+document.getElementById("btnc").addEventListener("click", () => {
+    operands = [];
+    currentOperand = "";
+    operator = null;
+    outputBox.textContent = "0";
+});
