@@ -1,4 +1,3 @@
-
 class Task {
     constructor(title) {
         if (new.target === Task) {
@@ -11,7 +10,6 @@ class Task {
     render() {
         throw new Error("Method 'render()' must be implemented by subclasses")
     }
-
 
     toggleStatus() {
         this.isCompleted = !this.isCompleted
@@ -29,25 +27,19 @@ class PersonalTask extends Task {
         const item = document.createElement("li");
 
         item.innerHTML = `
-        <strong>${this.title}</strong> <br>
-        <i>Done: ${this.isCompleted ? "Yes" : "No"} </i>
-    `;
+            <strong>${this.title}</strong> <br>
+            <i id="status-${this.title}">Done: No</i>
+        `;
 
         const btn = document.createElement("button");
-        btn.textContent = this.isCompleted ? "Undo" : "Done";
+        btn.textContent = "Done";
 
         btn.addEventListener("click", () => {
             this.toggleStatus();
-
-            item.innerHTML = `
-        <strong>${this.title}</strong> <br>
-        <i>Done: ${this.isCompleted ? "Yes" : "No"} </i>
-    `;
-
+            document.getElementById(`status-${this.title}`).textContent = `Done: ${this.isCompleted ? "Yes" : "No"}`;
             btn.textContent = this.isCompleted ? "Undo" : "Done";
-
-            item.appendChild(btn);
         });
+
         item.appendChild(btn);
         taskList.appendChild(item);
     }
@@ -64,7 +56,6 @@ function addTask() {
     newTask.render()
     textField.value = "";
 }
-
 
 document.getElementById("btn-add").addEventListener("click", addTask);
 document.getElementById("txt-title").addEventListener("keydown", (event) => {
